@@ -47,4 +47,18 @@ auto main() -> int // Why not make everything a lambda, eh?
   constexpr auto FACT = Y<int>(λ(f, λ(n, n == 0 ? 1 : n * f(n - 1))));
 
   static_assert(FACT(5) == 120);
+
+  // Celsius and Fahrenheit - typed almbda caluclus
+  constexpr auto C = λ(x, x > 30);
+  constexpr auto F = λ(x, x > 90);
+
+  constexpr auto Celsius = λ(p, q, r, q(p));
+  constexpr auto Fahrenheit = λ(p, q, r, r(p));
+
+  constexpr auto w = λ(t, t(C)(F));
+
+  static_assert(w(Celsius(20)) == false);
+  static_assert(w(Celsius(40)) == true);
+  static_assert(w(Fahrenheit(80)) == false);
+  static_assert(w(Fahrenheit(100)) == true);
 }
