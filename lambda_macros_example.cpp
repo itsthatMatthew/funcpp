@@ -48,7 +48,7 @@ auto main() -> int // Why not make everything a lambda, eh?
 
   static_assert(FACT(5) == 120);
 
-  // Celsius and Fahrenheit - typed almbda caluclus
+  // Celsius and Fahrenheit - typed lambda calculus
   constexpr auto C = λ(x, x > 30);
   constexpr auto F = λ(x, x > 90);
 
